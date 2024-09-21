@@ -1,0 +1,130 @@
+meta:
+  engine: 4.1.0
+  author: Jakob Schmid
+  version: 0.0.1
+units:
+  U: 19.05 # 19.05mm MX spacing
+  u: 19 # 19mm MX spacing
+  cx: 18 # 18mm Choc X spacing
+  cy: 17 # 17mm Choc Y spacing
+  px: U/2+5
+  py: U/2+5
+  stagger_ring: 15
+  stagger_middle: 4
+  stagger_index: -6
+  stagger_inner: -5
+points:
+  key.spread: U
+  key.padding: U
+  zones:
+    matrix_left:
+      anchor:
+        rotate: 5
+        shift: [100, -100]
+      columns:
+        outer:
+        pinky:
+        ring:
+          key.stagger: stagger_ring
+        middle:
+          key.stagger: stagger_middle
+        index:
+          key.stagger: stagger_index
+        inner:
+          key.stagger: stagger_inner
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+    thumbfan:
+      anchor:
+        ref: matrix_left_middle_bottom
+        shift: [0, stagger_index-U]
+      columns:
+        near:
+        home:
+        far:
+          key.stagger: stagger_inner
+      rows:
+        thumb:
+    
+  rotate: -20   
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [U, U]
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_left_outer_num
+          shift: [-px, py]
+        - ref: matrix_left_pinky_num
+          shift: [U-px, py]
+        - ref: matrix_left_ring_num
+          shift: [-px, py]
+        - ref: matrix_left_ring_num
+          shift: [U-px, py]
+        - ref: matrix_left_middle_num
+          shift: [-px, py]
+        - ref: matrix_left_middle_num
+          shift: [px, py]
+        - ref: matrix_left_index_num
+          shift: [px-U, py]
+        - ref: matrix_left_index_num
+          shift: [px, py]
+        - ref: matrix_left_inner_num
+          shift: [px-U, py]
+        - ref: matrix_left_inner_num
+          shift: [px, py]
+        - ref: thumbfan_far_thumb
+          shift: [px, -py]
+        - ref: thumbfan_far_thumb
+          shift: [-px, -py]
+        - ref: thumbfan_home_thumb
+          shift: [U-px, -py]
+        - ref: thumbfan_near_thumb
+          shift: [-px, -py]
+        - ref: thumbfan_near_thumb
+          shift: [-px-U, -py]
+        - ref: matrix_left_pinky_bottom
+          shift: [U-px, -py]
+        - ref: matrix_left_outer_bottom
+          shift: [-px, -py]
+      fillet: 1.5
+  combo:
+    part1:
+      name: raw
+    part2:
+      name: board
+      operation: stack
+pcbs:
+  no_hotswap:
+    outlines:
+      - outline: board
+        layer: Edge.Cuts
+    footprints:
+      kailh_nothot:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: false
+          from: "{{col_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      elite_c:
+        what: elite_c_rev4
+        where: 
+        params:
+          orientation: "down"
