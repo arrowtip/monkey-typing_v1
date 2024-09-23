@@ -15,6 +15,7 @@ units:
   stagger_inner: -5
   stagger_farfar: -2
   trrs_y_shift: -30
+  reset_y_shift: -40
 points:
   key.spread: U
   key.padding: U
@@ -25,33 +26,54 @@ points:
         shift: [100, -150]
       columns:
         outer:
+          key.col_net: P1
         pinky:
+          key.col_net: P0
         ring:
-          key.stagger: stagger_ring
+          key:
+            stagger: stagger_ring
+            col_net: P4
         middle:
-          key.stagger: stagger_middle
+          key:
+            stagger: stagger_middle
+            col_net: P21
         index:
-          key.stagger: stagger_index
+          key:
+            stagger: stagger_index
+            col_net: P20
         inner:
-          key.stagger: stagger_inner
+          key:
+            stagger: stagger_inner
+            col_net: P19
       rows:
         bottom:
+          row_net: P16
         home:
+          row_net: P14
         top:
+          row_net: P15
         num:
+          row_net: P18
     thumbfan:
       anchor:
         ref: matrix_left_middle_bottom
         shift: [0, stagger_index-U]
       columns:
         near:
+          key.col_net: P4
         home:
+          key.col_net: P21
         far:
-          key.stagger: stagger_inner
+          key:
+            stagger: stagger_inner
+            col_net: P20
         farfar:
-          key.stagger: stagger_farfar
+          key:
+            stagger: stagger_farfar
+            col_net: P19
       rows:
         thumb:
+          row_net: P10
 outlines:
   raw:
     - what: rectangle
@@ -93,13 +115,13 @@ outlines:
           shift: [1.5U, py]
           # trrs indent
         - ref: matrix_left_inner_num
-          shift: [1.5U, trrs_y_shift+5]
+          shift: [1.5U, trrs_y_shift+6]
         - ref: matrix_left_inner_num
-          shift: [1.5U-2, trrs_y_shift+5]
+          shift: [1.5U-2, trrs_y_shift+6]
         - ref: matrix_left_inner_num
-          shift: [1.5U-2, trrs_y_shift-5]
+          shift: [1.5U-2, trrs_y_shift-6]
         - ref: matrix_left_inner_num
-          shift: [1.5U, trrs_y_shift-5]
+          shift: [1.5U, trrs_y_shift-6]
 
         - ref: thumbfan_farfar_thumb
           shift: [0.5U, py]
@@ -153,8 +175,8 @@ pcbs:
           to: "{{row_net}}"
         adjust:
           shift: [0, -5]
-      elite_c:
-        what: elite_c_rev4
+      controller:
+        what: promicro
         where: 
           ref: matrix_left_inner_num
           shift: [U, -6]
@@ -162,18 +184,18 @@ pcbs:
         params:
           orientation: "down"
       trrs_jack:
-        what: trrs
+        what: my_trrs
         where:
           ref: matrix_left_inner_num
-          shift: [U+6.5, trrs_y_shift-2.3]
+          shift: [U+6.5, trrs_y_shift-1.15]
           rotate: -90
         params:
           A: GND
-          B: GND
-          C: TX
+          B: P2 # SDA
+          C: P3 # SCL
           D: VCC
           reverse: true
-          symmetric: true
+          symmetric: false
       reset_button:
         what: my_button
         params:
@@ -182,7 +204,25 @@ pcbs:
           variant: 2_pin_th
         where:
           ref: matrix_left_inner_num
-          shift: [U, -40]
+          shift: [U, reset_y_shift]
           rotate: -180
+      i2c_sda_resistor:
+        what: my_resistor
+        params:
+          from: P2
+          to: VCC
+        where:
+          ref: matrix_left_inner_num
+          shift: [U-7, reset_y_shift]
+          rotate: 90
+      i2c_scl_resistor:
+        what: my_resistor
+        params:
+          from: P3
+          to: VCC
+        where:
+          ref: matrix_left_inner_num
+          shift: [U+7, reset_y_shift]
+          rotate: 90
           
 
