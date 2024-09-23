@@ -1,4 +1,4 @@
 
 
 all:
-	node ../node_modules/ergogen/src/cli.js config.yaml -o output
+	node ../node_modules/ergogen/src/cli.js ./ -o output

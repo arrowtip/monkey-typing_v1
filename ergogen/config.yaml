@@ -13,14 +13,16 @@ units:
   stagger_middle: 4
   stagger_index: -6
   stagger_inner: -5
+  stagger_farfar: -2
+  trrs_y_shift: -30
 points:
   key.spread: U
   key.padding: U
   zones:
     matrix_left:
       anchor:
-        rotate: 5
-        shift: [100, -100]
+        rotate: 0
+        shift: [100, -150]
       columns:
         outer:
         pinky:
@@ -46,10 +48,10 @@ points:
         home:
         far:
           key.stagger: stagger_inner
+        farfar:
+          key.stagger: stagger_farfar
       rows:
         thumb:
-    
-  rotate: -20   
 outlines:
   raw:
     - what: rectangle
@@ -77,10 +79,38 @@ outlines:
           shift: [px, py]
         - ref: matrix_left_inner_num
           shift: [px-U, py]
+          # usb-c indent
         - ref: matrix_left_inner_num
+          shift: [U-6, py]
+        - ref: matrix_left_inner_num
+          shift: [U-6, py-2]
+        - ref: matrix_left_inner_num
+          shift: [U+6, py-2]
+        - ref: matrix_left_inner_num
+          shift: [U+6, py]
+
+        - ref: matrix_left_inner_num
+          shift: [1.5U, py]
+          # trrs indent
+        - ref: matrix_left_inner_num
+          shift: [1.5U, trrs_y_shift+5]
+        - ref: matrix_left_inner_num
+          shift: [1.5U-2, trrs_y_shift+5]
+        - ref: matrix_left_inner_num
+          shift: [1.5U-2, trrs_y_shift-5]
+        - ref: matrix_left_inner_num
+          shift: [1.5U, trrs_y_shift-5]
+
+        - ref: thumbfan_farfar_thumb
+          shift: [0.5U, py]
+        - ref: thumbfan_farfar_thumb
           shift: [px, py]
-        - ref: thumbfan_far_thumb
+        - ref: thumbfan_farfar_thumb
           shift: [px, -py]
+        - ref: thumbfan_farfar_thumb
+          shift: [-px, -py]
+        - ref: thumbfan_far_thumb
+          shift: [U-px, -py]
         - ref: thumbfan_far_thumb
           shift: [-px, -py]
         - ref: thumbfan_home_thumb
@@ -93,7 +123,7 @@ outlines:
           shift: [U-px, -py]
         - ref: matrix_left_outer_bottom
           shift: [-px, -py]
-      fillet: 1.5
+      fillet: 0.999
   combo:
     part1:
       name: raw
@@ -126,5 +156,33 @@ pcbs:
       elite_c:
         what: elite_c_rev4
         where: 
+          ref: matrix_left_inner_num
+          shift: [U, -6]
+          rotate: -90
         params:
           orientation: "down"
+      trrs_jack:
+        what: trrs
+        where:
+          ref: matrix_left_inner_num
+          shift: [U+6.5, trrs_y_shift-2.3]
+          rotate: -90
+        params:
+          A: GND
+          B: GND
+          C: TX
+          D: VCC
+          reverse: true
+          symmetric: true
+      reset_button:
+        what: my_button
+        params:
+          from: GND
+          to: RST
+          variant: 2_pin_th
+        where:
+          ref: matrix_left_inner_num
+          shift: [U, -40]
+          rotate: -180
+          
+
