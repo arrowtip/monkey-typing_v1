@@ -224,5 +224,42 @@ pcbs:
           ref: matrix_left_inner_num
           shift: [U+7, reset_y_shift]
           rotate: 90
+      rotary_encoder:
+        what: rotary
+        params:
+          from: P0 # pinky col_net
+          to: my_col_row
+          A: P4
+          B: GND
+          C: P5
+        where:
+          ref: thumbfan_near_thumb
+          shift: [-U, 2]
+          rotate: 90
+      scrollwheel:
+        what: my_scrollwheel
+        params:
+          from: P0 # pinky col_net
+          to: my_col_row
+          A: P4
+          B: P5
+          C: GND
+          D: '' # unused
+          orientation: down
+        where:
+          ref: thumbfan_near_thumb
+          shift: [-U-0.5, 0]
+          rotate: 90
+      rotary_diode:
+        what: diode
+        params:
+          from: my_col_row
+          to: P10 # thumb row net
+        where:
+          ref: thumbfan_near_thumb
+          shift: [0, U/2-stagger_index/2]
+          rotate: 180
+
+
           
 
