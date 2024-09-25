@@ -26,13 +26,13 @@ points:
         shift: [100, -150]
       columns:
         outer:
-          key.col_net: P1
+          key.col_net: P4
         pinky:
-          key.col_net: P0
+          key.col_net: P5
         ring:
           key:
             stagger: stagger_ring
-            col_net: P4
+            col_net: P6
         middle:
           key:
             stagger: stagger_middle
@@ -60,7 +60,7 @@ points:
         shift: [0, stagger_index-U]
       columns:
         near:
-          key.col_net: P4
+          key.col_net: P6
         home:
           key.col_net: P21
         far:
@@ -213,7 +213,7 @@ pcbs:
           to: VCC
         where:
           ref: matrix_left_inner_num
-          shift: [U-7, reset_y_shift]
+          shift: [U-6, reset_y_shift]
           rotate: 90
       i2c_scl_resistor:
         what: my_resistor
@@ -222,16 +222,76 @@ pcbs:
           to: VCC
         where:
           ref: matrix_left_inner_num
-          shift: [U+7, reset_y_shift]
+          shift: [U+6, reset_y_shift]
           rotate: 90
+      rgb_1_top:
+        what: ws2812
+        params:
+          side: 'F'
+          din: P7
+          dout: rgb_1_out
+        where:
+          ref: matrix_left_inner_num
+          shift: [U, -50]
+          rotate: 0
+      # rgb_2_top:
+      #   what: ws2812
+      #   params:
+      #     side: 'F'
+      #     din: rgb_1_out
+      #     dout: rgb_2_out
+      #   where:
+      #     ref: matrix_left_inner_num
+      #     shift: [U, -56]
+      #     rotate: 0
+      rgb_3_top:
+        what: ws2812
+        params:
+          side: 'F'
+          din: rgb_2_out
+          dout: rgb_3_out
+        where:
+          ref: matrix_left_inner_num
+          shift: [U, -62]
+          rotate: 0
+      # rgb_1_bottom:
+      #   what: ws2812
+      #   params:
+      #     side: 'B'
+      #     din: P7
+      #     dout: rgb_1_out
+      #   where:
+      #     ref: matrix_left_inner_num
+      #     shift: [U, -50]
+      #     rotate: 180
+      rgb_2_bottom:
+        what: ws2812
+        params:
+          side: 'B'
+          din: rgb_1_out
+          dout: rgb_2_out
+        where:
+          ref: matrix_left_inner_num
+          shift: [U, -56]
+          rotate: 0
+      rgb_3_bottom:
+        what: ws2812
+        params:
+          side: 'B'
+          din: rgb_2_out
+          dout: rgb_3_out
+        where:
+          ref: matrix_left_inner_num
+          shift: [U, -62]
+          rotate: 0
       rotary_encoder:
         what: rotary
         params:
-          from: P0 # pinky col_net
+          from: P5 # pinky col_net
           to: my_col_row
-          A: P4
+          A: P8
           B: GND
-          C: P5
+          C: P9
         where:
           ref: thumbfan_near_thumb
           shift: [-U, 2]
@@ -239,10 +299,10 @@ pcbs:
       scrollwheel:
         what: my_scrollwheel
         params:
-          from: P0 # pinky col_net
+          from: P5 # pinky col_net
           to: my_col_row
-          A: P4
-          B: P5
+          A: P8
+          B: P9
           C: GND
           D: '' # unused
           orientation: down
