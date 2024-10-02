@@ -23,6 +23,8 @@
 // Nets
 //    A: corresponds to pin 1
 //    B: corresponds to pin 2
+//    A2: corresponds to pin 1 on bottom side in symmetric case
+//    B2: corresponds to pin 2 on bottom side in symmetric case
 //    C: corresponds to pin 3
 //    D: corresponds to pin 4
 // Params
@@ -38,12 +40,33 @@ module.exports = {
     designator: 'TRRS',
     reverse: false,
     symmetric: false,
+    my: false,
     A: undefined,
     B: undefined,
     C: undefined,
     D: undefined
   },
   body: p => {
+    const my_symmetric = `
+      ${'' /* stabilizers */}
+      (pad "" np_thru_hole circle (at 0 8.6) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+      (pad "" np_thru_hole circle (at 0 1.6) (size 1.5 1.5) (drill 1.5) (layers *.Cu *.Mask))
+
+      ${'' /* regular pins */}
+      (pad 3 thru_hole oval (at 2.3 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.C})
+      (pad 4 thru_hole oval (at 2.3 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.D})
+      (pad 3 thru_hole oval (at -2.3 6.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.C})
+      (pad 4 thru_hole oval (at -2.3 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.D})
+
+      ${'' /* double assigned pins top */}
+      (pad 1 thru_hole oval (at 2.3 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.A})
+      (pad 2 thru_hole oval (at -2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.B})
+
+      ${'' /* double assigned pins bottom */}
+      (pad 1 thru_hole oval (at -2.3 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) )
+      (pad 2 thru_hole oval (at 2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) )
+
+    `
     const standard = `
       (module TRRS-PJ-320A-dual (layer F.Cu) (tedit 5970F8E5)
 
@@ -69,7 +92,12 @@ module.exports = {
         (pad 4 thru_hole oval (at ${def_pos} 3.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.D})
       `
     }
-    if(p.reverse & p.symmetric) {
+    if (p.my) {
+      return `
+        ${standard}
+        ${my_symmetric})
+      `
+    } else if(p.reverse & p.symmetric) {
       return `
         ${standard}
         ${stabilizers('-2.3')}

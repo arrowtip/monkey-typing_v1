@@ -16,6 +16,7 @@ units:
   stagger_farfar: -2
   trrs_y_shift: -30
   reset_y_shift: -40
+  trrs_jumper_y_shift: trrs_y_shift+6
 points:
   key.spread: U
   key.padding: U
@@ -187,15 +188,36 @@ pcbs:
         what: my_trrs
         where:
           ref: matrix_left_inner_num
-          shift: [U+6.5, trrs_y_shift-1.15]
+          shift: [U+6.5, trrs_y_shift]
           rotate: -90
         params:
-          A: GND
-          B: P2 # SDA
+          A: trrs_gnd
+          B: trrs_sda # SDA
           C: P3 # SCL
           D: VCC
-          reverse: true
-          symmetric: false
+          my: true
+      trrs_jumper_sda:
+        what: my_threeway_jumper
+        where:
+          ref: matrix_left_inner_num
+          shift: [U-3, trrs_jumper_y_shift]
+          rotate: 90
+        params:
+          from: P2 # SDA
+          to_a: trrs_sda
+          to_b: trrs_gnd
+          side: both
+      trrs_jumper_gnd:
+        what: my_threeway_jumper
+        where:
+          ref: matrix_left_inner_num
+          shift: [U+3, trrs_jumper_y_shift]
+          rotate: 90
+        params:
+          from: GND
+          to_a: trrs_sda
+          to_b: trrs_gnd
+          side: both
       reset_button:
         what: my_button
         params:
