@@ -308,6 +308,27 @@ pcbs:
           ref: thumbfan_near_thumb
           shift: [0, U/2-stagger_index/2]
           rotate: 180
+      mounting_hole_1:
+        what: my_mountinghole
+        params:
+          size: m2
+        where:
+          ref: matrix_left_pinky_top
+          shift: [-U/2, -U/2]
+      mounting_hole_2:
+        what: my_mountinghole
+        params:
+          size: m2
+        where:
+          ref: thumbfan_near_thumb
+          shift: [U/2, U/2]
+      mounting_hole_3:
+        what: my_mountinghole
+        params:
+          size: m2
+        where:
+          ref: matrix_left_inner_top
+          shift: [-U/2, U/2]
 
 
           
