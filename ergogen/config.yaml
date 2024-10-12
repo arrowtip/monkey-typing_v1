@@ -329,6 +329,14 @@ pcbs:
         where:
           ref: matrix_left_inner_top
           shift: [-U/2, U/2]
+      madeline:
+        what: madeline
+        params:
+          scale: 0.13
+          width: 0.8
+        where:
+          ref: matrix_left_outer_num
+          shift: [-3.7U, 2.8U]
 
 
           
