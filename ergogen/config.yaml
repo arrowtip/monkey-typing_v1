@@ -332,11 +332,11 @@ pcbs:
       madeline:
         what: madeline
         params:
-          scale: 0.13
+          scale: 0.5
           width: 0.8
         where:
           ref: matrix_left_outer_num
-          shift: [-3.7U, 2.8U]
+          shift: [0.1U, 2.8U]
 
 
           
