@@ -76,10 +76,10 @@ points:
         thumb:
           row_net: P10
 outlines:
-  raw:
-    - what: rectangle
-      where: true
-      size: [U, U]
+  # raw:
+  #   - what: rectangle
+  #     where: true
+  #     size: [U, U]
   board:
     - what: polygon
       operation: stack
@@ -146,13 +146,14 @@ outlines:
           shift: [U-px, -py]
         - ref: matrix_left_outer_bottom
           shift: [-px, -py]
+      # make fillets work properly for 2mm edges
       fillet: 0.999
-  combo:
-    part1:
-      name: raw
-    part2:
-      name: board
-      operation: stack
+  # combo:
+  #   part1:
+  #     name: raw
+  #   part2:
+  #     name: board
+  #     operation: stack
 pcbs:
   no_hotswap:
     outlines:
@@ -337,6 +338,13 @@ pcbs:
         where:
           ref: matrix_left_outer_num
           shift: [0.1U, 2.8U]
+      winged_berry:
+        what: winged-berry
+        params:
+          side: B
+        where:
+          ref: matrix_left_outer_num
+          shift: [2.8U, -1.1U]
 
 
           
