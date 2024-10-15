@@ -24,7 +24,7 @@ module.exports = {
         (pad 3 smd rect (at 1.00076 0 ${p.r}) (size 0.635 1.143) (layers ${p.side}.Cu ${p.side}.Paste ${p.side}.Mask)
         (clearance 0.1905) ${p.to_b})
       )
-    `
+    `;
     const dual_side = `
         (module threeway_jumper (layer F.Cu) (tedit 5E1ADAC2)
         ${p.at /* parametric position */} 
@@ -47,34 +47,32 @@ module.exports = {
         (clearance 0.1905) ${p.from})
         (pad 6 smd rect (at 1.00076 0 ${p.r}) (size 0.635 1.143) (layers B.Cu B.Paste B.Mask)
         (clearance 0.1905) ${p.to_b})
+      )
 
         ${'' /* vias */}
-        (pad 7 thru_hole circle 
-          (at -1.00076 0) 
-          (size 0.6 0.6) 
-          (drill 0.3) 
-          (layers "*.Cu" "*.Mask") 
-          (remove_unused_layers no)
-          (zone_connect 2) 
-          ${p.to_a})
-        (pad 8 thru_hole circle 
-          (at 0 0) 
-          (size 0.6 0.6) 
-          (drill 0.3) 
-          (layers "*.Cu" "*.Mask") 
-          (remove_unused_layers no)
-          (zone_connect 2) 
-          ${p.from})
-        (pad 9 thru_hole circle 
-          (at 1.00076 0) 
-          (size 0.6 0.6) 
-          (drill 0.3) 
-          (layers "*.Cu" "*.Mask") 
-          (remove_unused_layers no)
-          (zone_connect 2) 
-          ${p.to_b})
-      )
-    `
+        (via
+          (at ${p.x - Math.cos(p.r / 360 * 2 * Math.PI) * 1.00076} ${p.y + Math.sin(p.r / 360 * 2 * Math.PI) * 1.00076})
+          (size 0.6)
+          (drill 0.3)
+          (layers "F.Cu" "B.Cu")
+          (net ${p.to_a.index})
+        )
+        (via
+          (at ${p.x} ${p.y})
+          (size 0.6)
+          (drill 0.3)
+          (layers "F.Cu" "B.Cu")
+          (net ${p.from.index})
+        )
+        (via
+          (at ${p.x + Math.cos(p.r / 360 * 2 * Math.PI) * 1.00076} ${p.y - Math.sin(p.r / 360 * 2 * Math.PI) * 1.00076})
+          (size 0.6)
+          (drill 0.3)
+          (layers "F.Cu" "B.Cu")
+          (net ${p.to_b.index})
+        )
+      
+    `;
     if (p.side == 'both') {
       return dual_side
     } else {
