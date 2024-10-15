@@ -15,7 +15,7 @@ units:
   stagger_inner: -5
   stagger_farfar: -2
   trrs_y_shift: -30
-  reset_y_shift: -40
+  reset_y_shift: -41
   trrs_jumper_y_shift: trrs_y_shift+6
 points:
   key.spread: U

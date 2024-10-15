@@ -60,11 +60,11 @@ module.exports = {
 
       ${'' /* double assigned pins top */}
       (pad 1 thru_hole oval (at 2.3 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.A})
-      (pad 2 thru_hole oval (at -2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.B})
+      (pad 1 thru_hole oval (at 2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.A})
 
       ${'' /* double assigned pins bottom */}
-      (pad 1 thru_hole oval (at -2.3 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) )
-      (pad 2 thru_hole oval (at 2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) )
+      (pad 2 thru_hole oval (at -2.3 11.3 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.B})
+      (pad 2 thru_hole oval (at -2.3 10.2 ${p.r}) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) ${p.B})
 
     `
     const standard = `
