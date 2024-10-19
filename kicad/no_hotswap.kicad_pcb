@@ -702,6 +702,7 @@
 					(size 1 1)
 					(thickness 0.15)
 				)
+				(justify mirror)
 			)
 		)
 		(fp_text user "1"
@@ -841,66 +842,6 @@
 			)
 		)
 		(attr through_hole)
-		(fp_line
-			(start -1.33 -1.33)
-			(end 0 -1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "3a9e9eac-10fb-484e-ad4a-c37a5d3fa4c4")
-		)
-		(fp_line
-			(start -1.33 0)
-			(end -1.33 -1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "c9a37952-b6bc-4bea-af55-07672ac94527")
-		)
-		(fp_line
-			(start -1.33 1.27)
-			(end -1.33 1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "dc80f00d-8a33-4ee8-9a64-03d5b336966d")
-		)
-		(fp_line
-			(start -1.33 1.27)
-			(end 1.33 1.27)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "01fcd910-3082-4fe6-9d6a-b197939eb020")
-		)
-		(fp_line
-			(start -1.33 1.33)
-			(end 1.33 1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "3524fb4f-bc2e-4c97-ad83-b884484c70e9")
-		)
-		(fp_line
-			(start 1.33 1.27)
-			(end 1.33 1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "e0776642-8532-4bc6-ac66-8807ecc17104")
-		)
 		(fp_line
 			(start -1.8 -1.8)
 			(end -1.8 1.8)
@@ -2345,6 +2286,7 @@
 					(size 1 1)
 					(thickness 0.15)
 				)
+				(justify mirror)
 			)
 		)
 		(fp_text user "1"
@@ -10673,6 +10615,7 @@
 					(size 1 1)
 					(thickness 0.15)
 				)
+				(justify mirror)
 			)
 		)
 		(fp_text user "1"

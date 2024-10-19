@@ -369,6 +369,7 @@ module.exports = {
 				(size 1 1)
 				(thickness 0.15)
 			)
+      (justify mirror)
 		)
 	)
 	(pad "1" smd rect
