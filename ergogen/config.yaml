@@ -178,7 +178,7 @@ pcbs:
         adjust:
           shift: [0, -5]
       controller:
-        what: promicro
+        what: my_promicro
         where: 
           ref: matrix_left_inner_num
           shift: [U, -6]
