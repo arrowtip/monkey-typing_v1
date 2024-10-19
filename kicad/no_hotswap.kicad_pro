@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.4986,
-          "height": 2.286,
-          "width": 2.286
+          "drill": 1.0,
+          "height": 1.7,
+          "width": 1.7
         },
         "silk_line_width": 0.12,
         "silk_text_italic": false,
@@ -48,11 +48,13 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.508
+          "min_clearance": 0.3
         }
       },
       "diff_pair_dimensions": [],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_overlap|139164616|121271504|e1f3f3db-6f6d-4189-9488-cd31301e3ef5|8295bf43-3124-4dbb-944a-8d6cf4d5597b"
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
@@ -113,7 +115,7 @@
         "max_error": 0.005,
         "min_clearance": 0.3,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.075,
+        "min_copper_edge_clearance": 0.5,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.2,
