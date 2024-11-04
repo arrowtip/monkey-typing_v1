@@ -9,6 +9,10 @@ units:
   cy: 17 # 17mm Choc Y spacing
   px: U/2+5
   py: U/2+5
+  switch_x: 14 # width of switch cutout
+  switch_y: 14
+  plate_x: 22 # width of switch plate around switches
+  plate_y: 22
   stagger_ring: 15
   stagger_middle: 4
   stagger_index: -6
@@ -76,10 +80,6 @@ points:
         thumb:
           row_net: P10
 outlines:
-  # raw:
-  #   - what: rectangle
-  #     where: true
-  #     size: [U, U]
   board:
     - what: polygon
       operation: stack
@@ -148,12 +148,32 @@ outlines:
           shift: [-px, -py]
       # make fillets work properly for 2mm edges
       fillet: 0.999
-  # combo:
-  #   part1:
-  #     name: raw
-  #   part2:
-  #     name: board
-  #     operation: stack
+  _switch_cutouts:
+    - what: rectangle
+      where: true
+      size: [switch_x, switch_y]
+  _switch_plate_outer:
+    - what: rectangle
+      where: true
+      size: [plate_x, plate_y]
+      fillet: 0.999
+  _mcu_cutout:
+    - what: rectangle
+      where:
+        ref: matrix_left_inner_num
+        shift: [U, -6]
+      size: [20.5, 35]
+  switch_plate:
+    part1:
+      name: _switch_plate_outer
+    part2:
+      name: _mcu_cutout
+      operation: subtract
+      fillet: 0.999
+    part3:
+      name: _switch_cutouts
+      operation: subtract
+
 pcbs:
   no_hotswap:
     outlines:
@@ -345,6 +365,12 @@ pcbs:
         where:
           ref: matrix_left_outer_num
           shift: [2.8U, -1.1U]
+cases:
+  switch_plate:
+    - what: outline
+      name: switch_plate
+      extrude: 1.5
+      operation: add
 
 
           
