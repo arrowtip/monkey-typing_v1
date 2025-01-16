@@ -2,3 +2,4 @@ node_modules
 ergogen/output/
 kicad/_autosave*
 fp-info-cache
+*kicad_pcb.lck
