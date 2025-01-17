@@ -354,17 +354,19 @@ pcbs:
         what: madeline
         params:
           scale: 0.5
-          width: 0.8
+          stroke: 0.8
+          side: F
         where:
           ref: matrix_left_outer_num
-          shift: [0.1U, 2.8U]
+          shift: [4.05U, -0.1U]
       winged_berry:
         what: winged-berry
         params:
           side: B
+          scale: 1.0
         where:
           ref: matrix_left_outer_num
-          shift: [2.8U, -1.1U]
+          shift: [2.8U - 9, -1.1U - 9]
 cases:
   switch_plate:
     - what: outline

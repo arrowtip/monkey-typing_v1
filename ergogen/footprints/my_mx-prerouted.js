@@ -103,7 +103,7 @@ module.exports = {
             nx = (cos * (adj_x - at_x)) + (sin * (adj_y - at_y)) + at_x,
             ny = (cos * (adj_y - at_y)) - (sin * (adj_x - at_x)) + at_y;
 
-        const point_str = `${nx.toFixed(2)} ${ny.toFixed(2)}`;
+        const point_str = `${nx.toFixed(5)} ${ny.toFixed(5)}`;
         return point_str;
     }
 

@@ -1,10 +1,11 @@
 module.exports = {
   params: {
-    scale: 1,
-    width: 0.5,
+    scale: 1.0,
+    stroke: 0.5,
+    side: 'F',
   },
 
-  body: (params) => {
+  body: (p) => {
     const raw_points = [
       [
         [
@@ -11715,25 +11716,27 @@ module.exports = {
     const string_pos = ([x, y]) => {
       let xPos = 0;
       let yPos = 0;
-      if (params.x === 0) {
-        xPos = x * params.scale;
+      if (p.x === 0) {
+        xPos = x * p.scale;
       } else {
-        xPos = x * params.scale + params.x;
+        xPos = x * p.scale + p.x;
       }
-      if (params.y === 0) {
-        yPos = y * params.scale;
+      if (p.y === 0) {
+        yPos = y * p.scale;
       } else {
-        yPos = y * params.scale + params.y;
+        yPos = y * p.scale + p.y;
       }
       return `(xy ${xPos} ${yPos})`;
     };
 
     const to_line = ([x1, y1], [x2, y2]) => {
-      return `(gr_line 
-        (start ${x1 * params.scale + params.x} ${y1 * params.scale + params.y}) 
-        (end ${x2 * params.scale + params.x} ${y2 * params.scale + params.y}) 
-        (layer "F.SilkS") 
-        (width ${params.width}))`;
+      const offset_x = 150;
+      const offset_y = 110;
+      return `(fp_line 
+        (start ${(x1 - offset_x) * p.scale} ${(y1 - offset_y) * p.scale}) 
+        (end ${(x2 - offset_x) * p.scale} ${(y2 - offset_y) * p.scale}) 
+        (layer "${p.side}.SilkS") 
+        (width ${p.stroke}))`;
     };
 
     const points = raw_points.map((path) => {
@@ -11743,6 +11746,11 @@ module.exports = {
       }
       return lines.join("\n");
     }).join("\n");
-    return points;
+    return `
+      (module celeste:madeline (layer ${p.side}.Cu) (tedit 64431779)
+      ${p.at /* parametric position */}
+      ${points}
+      )
+    `
   }
 }
