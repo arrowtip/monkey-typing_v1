@@ -1,7 +1,7 @@
 meta:
   engine: 4.1.0
   author: Jakob Schmid
-  version: 0.0.1
+  version: v1.1
 units:
   U: 19.05 # 19.05mm MX spacing
   u: 19 # 19mm MX spacing
@@ -367,6 +367,14 @@ pcbs:
         where:
           ref: matrix_left_outer_num
           shift: [2.8U - 9, -1.1U - 9]
+      version:
+        what: my_version
+        params:
+          side: F
+          $extends: meta
+        where:
+          ref: thumbfan_farfar_thumb
+          shift: [0, -U/2 - (py - U/2) / 2]
 cases:
   switch_plate:
     - what: outline
