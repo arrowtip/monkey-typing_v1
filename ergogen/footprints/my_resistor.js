@@ -16,96 +16,48 @@ module.exports = {
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         
         ${''/* resistor symbols */}
-        (fp_line
-          (start -0.227064 -0.735)
-          (end 0.227064 -0.735)
-          (stroke
-            (width 0.12)
-            (type solid)
-          )
-          (layer "F.SilkS")
-        )
-        (fp_line
-          (start -0.227064 0.735)
-          (end 0.227064 0.735)
-          (stroke
-            (width 0.12)
-            (type solid)
-          )
-          (layer "F.SilkS")
-        )
-        (fp_line
-          (start -1.85 -0.95)
-          (end 1.85 -0.95)
-          (stroke
-            (width 0.05)
-            (type solid)
-          )
-          (layer "F.CrtYd")
-        )
-        (fp_line
-          (start -1.85 0.95)
-          (end -1.85 -0.95)
-          (stroke
-            (width 0.05)
-            (type solid)
-          )
-          (layer "F.CrtYd")
-        )
-        (fp_line
-          (start 1.85 -0.95)
-          (end 1.85 0.95)
-          (stroke
-            (width 0.05)
-            (type solid)
-          )
-          (layer "F.CrtYd")
-        )
-        (fp_line
-          (start 1.85 0.95)
-          (end -1.85 0.95)
-          (stroke
-            (width 0.05)
-            (type solid)
-          )
-          (layer "F.CrtYd")
-        )
-        (fp_line
-          (start -1 -0.625)
-          (end 1 -0.625)
-          (stroke
-            (width 0.1)
-            (type solid)
-          )
-          (layer "F.Fab")
-        )
-        (fp_line
-          (start -1 0.625)
-          (end -1 -0.625)
-          (stroke
-            (width 0.1)
-            (type solid)
-          )
-          (layer "F.Fab")
-        )
-        (fp_line
-          (start 1 -0.625)
-          (end 1 0.625)
-          (stroke
-            (width 0.1)
-            (type solid)
-          )
-          (layer "F.Fab")
-        )
-        (fp_line
-          (start 1 0.625)
-          (end -1 0.625)
-          (stroke
-            (width 0.1)
-            (type solid)
-          )
-          (layer "F.Fab")
-        )
+        (fp_line (start -0.227064 -0.735) (end 0.227064 -0.735)
+          (stroke (width 0.12) (type solid)) (layer "F.SilkS"))
+        (fp_line (start -0.227064 0.735) (end 0.227064 0.735)
+          (stroke (width 0.12) (type solid)) (layer "F.SilkS"))
+        (fp_line (start -0.227064 -0.735) (end 0.227064 -0.735)
+          (stroke (width 0.12) (type solid)) (layer "B.SilkS"))
+        (fp_line (start -0.227064 0.735) (end 0.227064 0.735)
+          (stroke (width 0.12) (type solid)) (layer "B.SilkS"))
+
+        (fp_line (start -1.85 -0.95) (end 1.85 -0.95)
+          (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+        (fp_line (start -1.85 0.95) (end -1.85 -0.95)
+          (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+        (fp_line (start 1.85 -0.95) (end 1.85 0.95)
+          (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+        (fp_line (start 1.85 0.95) (end -1.85 0.95)
+          (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+        (fp_line (start -1.85 -0.95) (end 1.85 -0.95)
+          (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
+        (fp_line (start -1.85 0.95) (end -1.85 -0.95)
+          (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
+        (fp_line (start 1.85 -0.95) (end 1.85 0.95)
+          (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
+        (fp_line (start 1.85 0.95) (end -1.85 0.95)
+          (stroke (width 0.05) (type solid)) (layer "B.CrtYd"))
+
+        (fp_line (start -1 -0.625) (end 1 -0.625)
+          (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+        (fp_line (start -1 0.625) (end -1 -0.625)
+          (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+        (fp_line (start 1 -0.625) (end 1 0.625)
+          (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+        (fp_line (start 1 0.625) (end -1 0.625)
+          (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+        (fp_line (start -1 -0.625) (end 1 -0.625)
+          (stroke (width 0.1) (type solid)) (layer "B.Fab"))
+        (fp_line (start -1 0.625) (end -1 -0.625)
+          (stroke (width 0.1) (type solid)) (layer "B.Fab"))
+        (fp_line (start 1 -0.625) (end 1 0.625)
+          (stroke (width 0.1) (type solid)) (layer "B.Fab"))
+        (fp_line (start 1 0.625) (end -1 0.625)
+          (stroke (width 0.1) (type solid)) (layer "B.Fab"))
     
         ${''/* SMD pads on both sides */}
         (pad 1 smd roundrect (at -1 0 ${p.r}) (size 1.2 1.4) 

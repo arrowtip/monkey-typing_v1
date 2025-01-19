@@ -180,13 +180,14 @@ pcbs:
       - outline: board
         layer: Edge.Cuts
     footprints:
-      kailh_nothot:
-        what: mx
+      kailh_box:
+        what: my_mx-prerouted
         where: true
         params:
           keycaps: true
-          reverse: true
-          hotswap: false
+          preroute: true
+          trace_width: 0.5
+          top_vert: false
           from: "{{col_net}}"
           to: "{{colrow}}"
       diode:
