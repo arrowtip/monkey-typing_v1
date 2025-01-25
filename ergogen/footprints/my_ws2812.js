@@ -8,7 +8,9 @@ module.exports = {
     },
     body: p => `
 (footprint "LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
+
   ${p.at /* parametric position */}
+
 	(layer "F.Cu")
 	(descr "5.0mm x 5.0mm Addressable RGB LED NeoPixel, https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf")
 	(tags "LED RGB NeoPixel PLCC-4 5050")
@@ -46,30 +48,6 @@ module.exports = {
 			)
 		)
 	)
-	(property "Datasheet" ""
-		(at 0 0 0)
-		(unlocked yes)
-		(layer "F.Fab")
-		(hide yes)
-		(uuid "af8ebc25-09f5-4728-90c8-7ad585d30554")
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
-	(property "Description" ""
-		(at 0 0 0)
-		(unlocked yes)
-		(layer "F.Fab")
-		(hide yes)
-		(uuid "e29d4fdc-7eec-4404-9165-4a75e440ba73")
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
 	(attr smd)
 	(fp_line
 		(start -3.65 -2.75)
@@ -101,6 +79,7 @@ module.exports = {
 		(layer "F.SilkS")
 		(uuid "e860fd23-f087-40be-9473-9d8e25d5ffe3")
 	)
+
 	(fp_line
 		(start -3.45 -2.75)
 		(end -3.45 2.75)
@@ -141,6 +120,7 @@ module.exports = {
 		(layer "F.CrtYd")
 		(uuid "62f632c6-6884-46e9-ac67-40d4696553e0")
 	)
+
 	(fp_line
 		(start -2.5 -2.5)
 		(end -2.5 2.5)
@@ -202,6 +182,7 @@ module.exports = {
 		(layer "F.Fab")
 		(uuid "83b9b0b3-69d5-4d55-b734-61b11225d74a")
 	)
+
 	(fp_text user "1"
 		(at -4.15 -1.6 ${p.rot})
 		(layer "F.SilkS")
@@ -213,30 +194,35 @@ module.exports = {
 			)
 		)
 	)
-	(pad "1" smd rect
+
+	(pad "1" smd roundrect
 		(at -2.45 -1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "303fa036-5e50-4d6d-bb86-5cdfd4b88a9f")
     ${p.VCC.str}
 	)
-	(pad "2" smd rect
+	(pad "2" smd roundrect
 		(at -2.45 1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "19ff1e90-56ef-461a-889c-61ffea674474")
     ${p.dout.str}
 	)
-	(pad "3" smd rect
+	(pad "3" smd roundrect
 		(at 2.45 1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "abc776f0-6816-4443-a596-fad8645d4ac8")
     ${p.GND.str}
 	)
-	(pad "4" smd rect
+	(pad "4" smd roundrect
 		(at 2.45 -1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "e6e3b1bc-4064-4031-9b80-d1df61337d0a")
     ${p.din.str}
@@ -372,27 +358,31 @@ module.exports = {
       (justify mirror)
 		)
 	)
-	(pad "1" smd rect
+	(pad "1" smd roundrect
 		(at 2.45 -1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "B.Cu" "B.Paste" "B.Mask")
     ${p.VCC.str}
 	)
-	(pad "2" smd rect
+	(pad "2" smd roundrect
 		(at 2.45 1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "B.Cu" "B.Paste" "B.Mask")
     ${p.dout.str}
 	)
-	(pad "3" smd rect
+	(pad "3" smd roundrect
 		(at -2.45 1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "B.Cu" "B.Paste" "B.Mask")
     ${p.GND.str}
 	)
-	(pad "4" smd rect
+	(pad "4" smd roundrect
 		(at -2.45 -1.65 ${p.rot})
-		(size 1.5 0.9)
+		(size 1.8 1.0)
+    (roundrect_rratio 0.5)
 		(layers "B.Cu" "B.Paste" "B.Mask")
     ${p.din.str}
 	)
