@@ -31,54 +31,54 @@ points:
         shift: [100, -150]
       columns:
         outer:
-          key.col_net: P4
+          key.col_net: D4
         pinky:
-          key.col_net: P5
+          key.col_net: C6
         ring:
           key:
             stagger: stagger_ring
-            col_net: P6
+            col_net: D7
         middle:
           key:
             stagger: stagger_middle
-            col_net: P21
+            col_net: F4
         index:
           key:
             stagger: stagger_index
-            col_net: P20
+            col_net: F5
         inner:
           key:
             stagger: stagger_inner
-            col_net: P19
+            col_net: F6
       rows:
         bottom:
-          row_net: P16
+          row_net: B2
         home:
-          row_net: P14
+          row_net: B3
         top:
-          row_net: P15
+          row_net: B1
         num:
-          row_net: P18
+          row_net: F7
     thumbfan:
       anchor:
         ref: matrix_left_middle_bottom
         shift: [0, stagger_index-U]
       columns:
         near:
-          key.col_net: P6
+          key.col_net: D7
         home:
-          key.col_net: P21
+          key.col_net: F4
         far:
           key:
             stagger: stagger_inner
-            col_net: P20
+            col_net: F5
         farfar:
           key:
             stagger: stagger_farfar
-            col_net: P19
+            col_net: F6
       rows:
         thumb:
-          row_net: P10
+          row_net: B6
 outlines:
   board:
     - what: polygon
@@ -215,7 +215,7 @@ pcbs:
         params:
           A: trrs_gnd
           B: trrs_sda # SDA
-          C: P3 # SCL
+          C: D0 # SCL
           D: VCC
           my: true
       trrs_jumper_sda:
@@ -225,7 +225,7 @@ pcbs:
           shift: [U-3, trrs_jumper_y_shift]
           rotate: 90
         params:
-          from: P2 # SDA
+          from: D1 # SDA
           to_a: trrs_sda
           to_b: trrs_gnd
           side: both
@@ -253,7 +253,7 @@ pcbs:
       i2c_sda_resistor:
         what: my_resistor
         params:
-          from: P2
+          from: D1
           to: VCC
         where:
           ref: matrix_left_inner_num
@@ -262,7 +262,7 @@ pcbs:
       i2c_scl_resistor:
         what: my_resistor
         params:
-          from: P3
+          from: D0
           to: VCC
         where:
           ref: matrix_left_inner_num
@@ -271,7 +271,7 @@ pcbs:
       rgb_1:
         what: my_ws2812
         params:
-          din: P7
+          din: E6
           dout: rgb_1_out
         where:
           ref: matrix_left_inner_num
@@ -298,11 +298,11 @@ pcbs:
       rotary_encoder:
         what: rotary
         params:
-          from: P5 # pinky col_net
+          from: C6 # pinky col_net
           to: my_col_row
-          A: P8
+          A: B4
           B: GND
-          C: P9
+          C: B5
         where:
           ref: thumbfan_near_thumb
           shift: [-U, 2]
@@ -310,10 +310,10 @@ pcbs:
       scrollwheel:
         what: my_scrollwheel
         params:
-          from: P5 # pinky col_net
+          from: C6 # pinky col_net
           to: my_col_row
-          A: P8
-          B: P9
+          A: B4
+          B: B5
           C: GND
           D: '' # unused
           orientation: down
@@ -325,7 +325,7 @@ pcbs:
         what: diode
         params:
           from: my_col_row
-          to: P10 # thumb row net
+          to: B6 # thumb row net
         where:
           ref: thumbfan_near_thumb
           shift: [0, U/2-stagger_index/2]
