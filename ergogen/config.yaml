@@ -175,7 +175,7 @@ outlines:
       operation: subtract
 
 pcbs:
-  no_hotswap:
+  monkey-typing_v1:
     outlines:
       - outline: board
         layer: Edge.Cuts
