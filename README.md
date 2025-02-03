@@ -51,5 +51,5 @@ as removing the PCB again from the case might be difficult.
 > Never plug the TRRS cable in or out while the keyboard is connected via USB!
 
 ### Firmware
-Flash the [QMK firmware]() to the microcontrollers on both sides.
+Flash the [QMK firmware](https://github.com/arrowtip/monkey-typing_qmk) to the microcontrollers on both sides.
 
