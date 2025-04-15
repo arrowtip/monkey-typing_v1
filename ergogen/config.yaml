@@ -188,16 +188,9 @@ pcbs:
           preroute: true
           trace_width: 0.5
           top_vert: false
-          from: "{{col_net}}"
-          to: "{{colrow}}"
-      diode:
-        what: diode
-        where: true
-        params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
-        adjust:
-          shift: [0, -5]
+          in: "{{col_net}}"
+          out: "{{row_net}}"
+          inout: "{{colrow}}"
       controller:
         what: my_promicro
         where: 
